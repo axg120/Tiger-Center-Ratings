@@ -2,10 +2,9 @@
   * extension background page
   * @author Andy Gin
  */
-chrome.webNavigation.addListener(function(details) {
-  console.log("fjkdl");
-  if(hostContains("tigercenter.rit.edu/tigerCenterSearch/#/results?query=") {
-    chrome.pageAction.show(details.tabId);
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if(tab.url.includes("https://tigercenter.rit.edu/tigerCenterSearch/#/results?query=")) {
+    chrome.pageAction.show(tabId);
   }
 });
 
