@@ -5,15 +5,22 @@
   "description": "This extension displays professor ratings in Tiger Center",
   "version": "1.0",
   "author": "Andy Gin",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["tabs"],
 
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+  "icons": { "16":"icon.png", "48":"icon.png","128":"icon.png"},
+
+  "page_action": {
+    "default_icon": "icon.png"
   },
 
-  "content_scripts": [{
-      "matches": ["https://tigercenter.rit.edu/tigerCenterSearch/#/results?query=*"]
-  }]
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
 
+  "content_scripts": [ {
+      "matches": ["https://tigercenter.rit.edu/tigerCenterSearch/#/results?query=*"],
+      "js": ["contentScript.js"],
+      "css": ["contentScript.css"]
+  } ]
 }
