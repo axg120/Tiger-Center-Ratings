@@ -7,5 +7,3 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     chrome.pageAction.show(tabId);
   }
 });
-
-//var instructors = document.getElementsByClassName("cdSmallInstructor non-mobile");
